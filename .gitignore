@@ -1,0 +1,6 @@
+*.png
+node_modules
+.env
+*.jpeg
+*.gif
+*.jpg
