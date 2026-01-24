@@ -11,6 +11,14 @@ export const getProjects = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
+export const getAllProjects = async (req, res) => {
+  try {
+    const projects = await Project.find().sort({ createdAt: -1 });
+    res.json(projects);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
 
 // @desc    Get single project by ID
 // @route   GET /api/projects/:id

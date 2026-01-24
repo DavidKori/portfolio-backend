@@ -1,11 +1,12 @@
-import express from "express";
+import express, { Router } from "express";
 import {
   getProjects,
   getProjectById,
   createProject,
   updateProject,
   deleteProject,
-  bulkCreateProjects
+  bulkCreateProjects,
+  getAllProjects
 } from "../controllers/projects.controller.js";
 
 import protect from "../middleware/auth.middleware.js";
@@ -14,6 +15,7 @@ const router = express.Router();
 
 // Public
 router.get("/", getProjects);
+router.get("/all",getAllProjects)
 router.get("/:id", getProjectById);
 
 // Admin

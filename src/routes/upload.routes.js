@@ -68,15 +68,23 @@ router.post("/profile/photo", protect, upload.single("file"), async (req, res) =
 
 /* ===================== PROJECT ===================== */
 
-router.post("/project/:id", protect, upload.single("file"), async (req, res) => {
+router.post("/project", protect, upload.single("file"), async (req, res) => {
   try {
-    const result = await uploadToCloudinary(req.file.buffer, "projects");
+    // const result = await uploadToCloudinary(req.file.buffer, "projects");
 
-    await Project.findByIdAndUpdate(req.params.id, {
-      $push: { images: result.secure_url }
+    // await Project.findByIdAndUpdate(req.params.id, {
+    //   $push: { imageUrl: result.secure_url }
+    // });
+
+    // res.json({ url: result.secure_url });
+      const url = await uploadAndSave({
+      file: req.file,
+      folder: "project",
+      model: Project,
+      field: "imageUrl"
     });
 
-    res.json({ url: result.secure_url });
+    res.json({ url });
   } catch (err) {
     res.status(500).json({ error: "Project image upload failed" });
   }
