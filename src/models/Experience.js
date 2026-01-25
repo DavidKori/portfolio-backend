@@ -3,11 +3,10 @@ import mongoose from "mongoose";
 
 const experienceSchema = new mongoose.Schema(
   {
-    roleTitle: String,
-    organization: String,
+    role: String,
+    company: String,
     employmentType: String,
-    startDate: Date,
-    endDate: Date,
+    period: String,
     description: String,
     techUsed: [String],
     logoUrl: String
