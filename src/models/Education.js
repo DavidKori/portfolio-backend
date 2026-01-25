@@ -6,10 +6,10 @@ const educationSchema = new mongoose.Schema(
     institution: String,
     degree: String,
     fieldOfStudy: String,
-    startYear: Number,
-    endYear: Number,
+    period:String,
     description: String,
-    institutionLogoUrl: String
+    institutionLogoUrl: String,
+    certificateUrl: String
   },
   { timestamps: true }
 );

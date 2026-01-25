@@ -92,14 +92,14 @@ router.post("/project", protect, upload.single("file"), async (req, res) => {
 
 /* ===================== EDUCATION ===================== */
 
-router.post("/education/certificate/:id", protect, upload.single("file"), async (req, res) => {
+router.post("/education/certificate", protect, upload.single("file"), async (req, res) => {
   try {
     const url = await uploadAndSave({
       file: req.file,
       folder: "education",
       model: Education,
       id: req.params.id,
-      field: "institutionLogoUrl"
+      field: "certificateUrl"
     });
 
     res.json({ url });
