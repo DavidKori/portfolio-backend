@@ -10,6 +10,15 @@ export const getMessages = async (req, res) => {
   }
 };
 
+export const getUnreadMessages = async (req, res) => {
+  try {
+    const messages = await Message.find({read:false}).sort({ year: -1 });
+    res.json(messages);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
 // public
 export const createMessage = async (req, res) => {
   try {

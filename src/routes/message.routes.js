@@ -3,7 +3,8 @@ import {
   getMessages,
   createMessage,
   deleteMessage,
-  updateMessage
+  updateMessage,
+  getUnreadMessages
 } from "../controllers/message.controller.js";
 import protect from "../middleware/auth.middleware.js";
 
@@ -17,4 +18,5 @@ router.post("/", createMessage);
 router.get("/", protect, getMessages);
 router.delete("/:id", protect, deleteMessage);
 router.put("/:id/read",protect,updateMessage)
+router.get("/:id/unread",protect,getUnreadMessages)
 export default router;
