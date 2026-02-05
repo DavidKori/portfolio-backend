@@ -4,7 +4,10 @@ import mongoose from "mongoose";
 const resumeSchema = new mongoose.Schema(
   {
     resumePdfUrl: String,
-    lastUpdated: Date
+    lastUpdated: Date,
+    education: [String],
+    experience: [String],
+    skills: [String]
   },
   { timestamps: true }
 );
