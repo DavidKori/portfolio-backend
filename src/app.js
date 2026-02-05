@@ -49,8 +49,8 @@ app.use("/api/social", socialRoutes);
 app.use("/api/settings", settingsRoutes);
 app.use("/api/messages", messageRoutes)
 
-// const MONGO_URI = process.env.MONGO_URI;
-const MONGO_URI = "mongodb://localhost:27017/DavidKoriDb"
+const MONGO_URI = process.env.MONGO_URI;
+// const MONGO_URI = "mongodb://localhost:27017/DavidKoriDb"
 // Connect to MongoDB
 mongoose.connect(MONGO_URI)
 .then(() => console.log("MongoDB connected"))
