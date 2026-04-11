@@ -23,6 +23,7 @@ import contactRoutes from "./routes/contact.routes.js";
 import socialRoutes from "./routes/social.routes.js";
 import settingsRoutes from "./routes/settings.routes.js";
 import messageRoutes from "./routes/message.routes.js";
+import alertRoutes from "./routes/alertRoutes.js";
 
 dotenv.config();
 
@@ -48,7 +49,7 @@ app.use("/api/contact", contactRoutes);
 app.use("/api/social", socialRoutes);
 app.use("/api/settings", settingsRoutes);
 app.use("/api/messages", messageRoutes)
-
+app.use("/api/alerts", alertRoutes)
 const MONGO_URI = process.env.MONGO_URI;
 // const MONGO_URI = "mongodb://localhost:27017/DavidKoriDb"
 // Connect to MongoDB
