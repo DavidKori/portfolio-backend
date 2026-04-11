@@ -5,7 +5,12 @@ export const getAlert = async (req, res) => {
     try {
         const alert = await Alert.getAlert();
         // Return as array to maintain compatibility with frontend
-        res.json([alert]);
+        res.status(200).json({
+            alertType: alert.alertType,
+            alertMessage: alert.alertMessage,
+            publishAlert: alert.publishAlert
+        });
+       
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
