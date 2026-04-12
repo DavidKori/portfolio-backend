@@ -8,7 +8,9 @@ export const getAlert = async (req, res) => {
         res.status(200).json({
             alertType: alert.alertType,
             alertMessage: alert.alertMessage,
-            publishAlert: alert.publishAlert
+            publishAlert: alert.publishAlert,
+            updatedAt: alert.updatedAt,
+            createdAt: alert.createdAt
         });
        
     } catch (error) {
