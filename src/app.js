@@ -30,7 +30,13 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+    origin: [
+      
+'https://portfolio-admincom.vercel.app/'
+    ],
+    credentials: true,
+  }));
 app.use(express.json()); // parse JSON body
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev")); // logging
