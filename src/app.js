@@ -33,7 +33,8 @@ const app = express();
 app.use(cors({
     origin: [
       
-"https://portfolio-admincom.vercel.app"
+"https://portfolio-admincom.vercel.app",
+        "https://www.korideveloper.work.gd"
     ],
     credentials: true,
   }));
