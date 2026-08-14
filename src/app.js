@@ -28,17 +28,12 @@ import alertRoutes from "./routes/alertRoutes.js";
 dotenv.config();
 
 const app = express();
-const MONGO_URI = process.env.MONGO_URI;
-// const MONGO_URI = "mongodb://localhost:27017/DavidKoriDb"
-// Connect to MongoDB
-mongoose.connect(MONGO_URI)
-.then(() => console.log("MongoDB connected"))
-.catch((err) => console.error("MongoDB connection error:", err));
+
 // Middleware
 app.use(cors({
     origin: [
       
-"https://portfolio-admincom.vercel.app/"
+"https://portfolio-admincom.vercel.app"
     ],
     credentials: true,
   }));
@@ -61,7 +56,12 @@ app.use("/api/social", socialRoutes);
 app.use("/api/settings", settingsRoutes);
 app.use("/api/messages", messageRoutes)
 app.use("/api/alerts", alertRoutes)
-
+const MONGO_URI = process.env.MONGO_URI;
+// const MONGO_URI = "mongodb://localhost:27017/DavidKoriDb"
+// Connect to MongoDB
+mongoose.connect(MONGO_URI)
+.then(() => console.log("MongoDB connected"))
+.catch((err) => console.error("MongoDB connection error:", err));
 
 // Routes
 app.use("/api/auth", authRoutes);
